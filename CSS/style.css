@@ -6,6 +6,9 @@ body{
     background-attachment: fixed;
     background-position-y: -310px;
     background-position: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 body::before {
     color:rgb(125, 74, 11) ;
@@ -14,7 +17,7 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 200000px;
+    height: 4400px;
     background-color: rgba(0, 0, 0, 0.8); /* RGB color with alpha (0.5 for 50% opacity) */
   }
   #welcome{
@@ -123,4 +126,80 @@ body::before {
     background-color: black;
     opacity: 0.8;
 }
+#form{
+    color: rgb(230, 144, 24);
+    background-color: black;
+    opacity: 0.8;
+    cursor: pointer;
+    border: 3px solid rgb(66, 41, 10);
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgb(50, 29, 3);
+}
+.container3{
+  display:inline-block;
+  /* margin-left: 600px;
+  margin-top: 100px; */
+  bottom:0;
+  position: relative;
+  float: right;
+  margin-top: -550px;
+  margin-right: 250px;
   
+}
+.box1{
+  color:aqua;
+  width: 30px;
+  font-size: 70px;
+  margin: 30px;
+  
+}
+.box1 #insta {
+  color: rgb(177, 11, 66);
+}
+.box1 #email{
+  color: rgb(237, 140, 84);
+}
+.box1 #twitter{
+  color: rgb(117, 193, 237);
+}
+.container3 h2{
+  color: rgb(77, 44, 5);
+}
+.footer{
+  background-color: black;
+  opacity: 0.9;
+  color: rgb(146, 93, 23);
+  display: flex;
+  height: 300px;
+  margin-top: 150px;
+  width:1500px;
+  bottom: 0;
+  position: relative;
+  padding-left: 100px;
+
+}
+.footer-content{
+  width: 400px;
+  margin: 50px;
+}
+.footer-bottom{
+  background-color: black;
+  color:gray;
+  text-align: center;
+  margin-left: 500px;
+  margin-top: -10px;
+  opacity: 0.8;
+  width: 400px;
+}
+.footer1{
+  display: flex;
+}
+#copyright{
+  margin-top: -30px;
+  opacity: 0.9;
+margin-left: 500px;
+color: rgb(146, 85, 10);
+}
+.socials{
+  display: block;
+}
