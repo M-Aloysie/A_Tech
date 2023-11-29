@@ -37,7 +37,12 @@ body::before {
   }
   #getstarted:hover{
     background-color: rgb(57, 33, 5);
-    color: rgb(107, 74, 33);
+    color: rgb(233, 133, 12);
+    transition:  0.3s ease-in;
+   transform: scale(1.2 );
+   transform-style: preserve-3d;
+   text-shadow: 2px 2px 2px rgb(55, 27, 6);
+   font-weight: bolder;
     
   }
   #title{
@@ -140,7 +145,6 @@ body::before {
   bottom:0;
   position: relative;
   float: right;
-  
   margin-top: -550px;
   margin-right: 250px;
   
@@ -325,4 +329,14 @@ bottom: 0%;
   text-align: center;
   color: rgb(177, 76, 14);
   font-weight: bolder;
+}
+.nav-link:hover{
+  color: black;
+  opacity: 0.9;
+  transition: all 0.3s ease-in;
+  transform: scale(1.2 );
+  transform-style: preserve-3d;
+  text-shadow: 2px 2px 2px rgb(55, 27, 6);
+  font-weight: bolder;
+
 }
