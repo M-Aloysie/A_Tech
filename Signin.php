@@ -10,7 +10,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-image: url('/Images/wallpaper.jpg'); background-repeat: no-repeat; background-size: cover;">
     <nav class="navbar navbar-expand-lg  " style="background-color: transparent;"  id="navbar">
         <div class="container-fluid" id ="nav">
           <a class="navbar-brand" href="#"><h1 style="font-size: 50px; font-family: Arial, Helvetica, sans-serif; font-weight: bolder;"><b><span style="color:rgb(12, 44, 12);">Agri</span><span style="color:rgb(139, 83, 13)">Tech</span></b></h1></a></h1></a>
@@ -47,24 +47,24 @@
       <!-- <div id="signInError" class="alert alert-danger" style="display: none; margin-top: 10px; width: 300px; height: 70px; margin-left: 500px;">
         Invalid email or password. Please try again.
     </div> -->
-      <form id="signinForm" class="row g-3 needs-validation" novalidate style="opacity: 0.9; width:500px; height: 550px; margin-left: 500px; border: 10px solid rgb(95, 54, 4); padding: 30px; margin-top: 50px;">
+      <form id="signinForm" class="row g-3 needs-validation" novalidate style="opacity: 0.9; width:500px; height: 550px; margin-left: 500px; border: 10px solid rgb(95, 54, 4); padding: 30px; margin-top: 50px;" action="Signin.php" method="POST">
         <h2 style="color: rgb(10, 84, 20); font-weight: bolder; font-size: 40px; text-align: center; opacity: 0.9; margin-bottom: 60px;"><b>Sign In</b></h2>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label" style="opacity:0.9; color: rgb(173, 102, 14);">Email</label>
+            <label for="inputEmail3" name="cus_email" class="col-sm-2 col-form-label" style="opacity:0.9; color: rgb(173, 102, 14);">Email</label>
             <div class="col-sm-10">
                 <input type="email" class="form-control" id="inputEmail3" required>
                 <div class="invalid-feedback" id="emailError">Please enter a valid email address.</div>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputPassword3" class="col-sm-2 col-form-label" style="opacity:0.9; color: rgb(173, 102, 14);">Password</label>
+            <label for="inputPassword3" name="cus_pass" class="col-sm-2 col-form-label" style="opacity:0.9; color: rgb(173, 102, 14);">Password</label>
             <div class="col-sm-10">
                 <input type="password" class="form-control" id="inputPassword3" required>
                 <div class="invalid-feedback" id="passwordError">Please enter your password.</div>
             </div>
         </div>
         <fieldset class="row mb-3">
-            <legend class="col-form-label col-sm-2 pt-0" style="opacity:0.9; color: rgb(173, 102, 14);"> User Type</legend>
+            <legend class="col-form-label col-sm-2 pt-0" name="user_type" style="opacity:0.9; color: rgb(173, 102, 14);"> User Type</legend>
             <div class="col-sm-10">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked style=".form-check-input:hover::after{background-color: rgb(173, 102, 14);}" required>
@@ -90,7 +90,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-warning" style="margin-left: 150px; width: 200px;" onclick="validateSignInForm()"><a href="Home.html" style="color: black; text-decoration: none; transform: 0.3s ease in; font-weight: bolder;">Sign In</a></button>
+        <button type="button" class="btn btn-warning" style="margin-left: 150px; width: 200px;" onclick="validateSignInForm()"><a href="Home.html" style="color: black; text-decoration: none; transform: 0.3s ease in; font-weight: bolder;" nam="submit">Sign In</a></button>
         <p style="opacity:0.9; color: rgb(134, 76, 6); margin-top: 20px;">Don't have an account? <a href="/Signup.html" style="opacity:0.9; color: rgb(234, 136, 16); text-decoration: double;">Sign up</a></p>
     </form>
     <?php
@@ -116,8 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     mysqli_close($con);
 }
-    
-
+?>
 <script src="/Js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
