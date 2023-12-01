@@ -4,38 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Signin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
-    <?php
-    include "/Back_End_PHP/connect.php"; 
-
-    if (isset($_POST['submit'])) {
-        $cus_first_name = $_POST['cus_first_name'];
-        $cus_last_name = $_POST['cus_last_name'];
-        $cus_email = $_POST['cus_email'];
-        $cus_country = $_POST['cus_country'];
-        $cus_user_type = $_POST['cus_user_type'];
-        $cus_phone_number = $_POST['cus_phone_number'];
-        $cus_password = $_POST['cus_password'];
-
-   
-        $sql = "INSERT INTO `customers` (`cus_first_name`, `cus_last_name`, `cus_email`, `cus_country`, `cus_user_type`, `cus_phone_number`, `cus_password`) 
-                VALUES ('$cus_first_name', '$cus_last_name', '$cus_email', '$cus_country', '$cus_user_type', '$cus_phone_number', '$cus_password')";
-        
-        $result = mysqli_query($con, $sql);
-
-        if ($result) {
-            header("location: signin.php");
-            exit();
-        } else {
-            echo "Error: " . mysqli_error($con);
-        }
-    }
-
-    
-    ?>
-
-<form class="row g-3 needs-validation" novalidate style="width: 600px; height: 750px; opacity: 0.9; margin-left: 500px; border: 10px solid rgb(147, 84, 8); margin-top: 30px; padding: 30px;" action="process_signup.php" method="POST">
+<nav class="navbar navbar-expand-lg  " style="background-color: transparent;"  id="navbar">
+        <div class="container-fluid" id ="nav">
+          <a class="navbar-brand" href="#"><h1 style="font-size: 50px; font-family: Arial, Helvetica, sans-serif; font-weight: bolder;"><b><span style="color:rgb(12, 44, 12);">Agri</span><span style="color:rgb(139, 83, 13)">Tech</span></b></h1></a></h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown"  >
+            <ul class="navbar-nav" >
+              <li class="nav-item" >
+                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="#">Home</a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link active" href="#" style="color: rgb(215, 118, 7);">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#" style="color: rgb(222, 125, 14);">Sevices</a>
+              </li>
+              <li class="nav-item">
+                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                      Join Us
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li>
+                      <li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li>
+                    </ul>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+<form class="row g-3 needs-validation" novalidate style="width: 600px; height: 750px; opacity: 0.9; margin-left: 500px; border: 10px solid rgb(147, 84, 8); margin-top: 30px; padding: 30px;" action="" method="POST">
     <div class="col-md-6">
         <label for="validationCustom01" class="form-label">First name</label>
         <input type="text" class="form-control" id="validationCustom01" name="cus_first_name" placeholder="Enter your first name" required>
@@ -108,9 +119,41 @@
         </div>
     </div>
     <div class="col-12">
-        <button type="submit" class="btn btn-warning" style="margin-left: 150px; width: 200px;">Create Account</button>
+        <button type="submit" class="btn btn-warning" style="margin-left: 150px; width: 200px;" name="submit">Create Account</button>
     </div>
 </form>
 
+<?php
+    require "connect.php"; 
+
+    if (isset($_POST['submit'])) {
+        $cus_first_name = $_POST['cus_first_name'];
+        $cus_last_name = $_POST['cus_last_name'];
+        $cus_email = $_POST['cus_email'];
+        $cus_country = $_POST['cus_country'];
+        $cus_user_type = $_POST['cus_user_type'];
+        $cus_phone_number = $_POST['cus_phone_number'];
+        $cus_password = $_POST['cus_password'];
+
+   
+        $sql = "INSERT INTO `customers` (`cus_first_name`, `cus_last_name`, `cus_email`, `cus_country`, `cus_user_type`, `cus_phone_number`, `cus_password`) 
+                VALUES ('$cus_first_name', '$cus_last_name', '$cus_email', '$cus_country', '$cus_user_type', '$cus_phone_number', '$cus_password')";
+        
+        $result = mysqli_query($con, $sql);
+
+        if ($result) {
+            header("location: cussignin.php");
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($con);
+        }
+    }
+
+    
+    ?>
+
+<script src="../Js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>
