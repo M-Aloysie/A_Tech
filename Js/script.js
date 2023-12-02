@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Check if the form is valid and passwords match before redirecting
       if (isValid && checkPasswordsMatch()) {
         // Allow redirection to Signin.html if the form is valid
-        window.location.href = 'Signin.php';
+        window.location.href = 'Signin.html';
       }
     });
   
@@ -99,7 +99,7 @@ function validateSignInForm() {
 
     if (isValidUser) {
         // Redirect or perform the sign-in logic
-        window.location.href = 'Gstarted.html';
+        window.location.href = 'signin.html';
     } else {
         // Display error message
         var errorMessage = document.getElementById('signInError');
