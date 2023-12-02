@@ -1,35 +1,4 @@
-<!-- <?php
 
-// Include your database connection file here
-include 'path_to_your_db_connection_file.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $city = $_POST['city'];
-    $province = $_POST['province'];
-    $phone_number = $_POST['phone_number'];
-    $message = $_POST['message'];
-    $type = $_POST['type']; // Assuming you have a hidden input in your form for type
-
-    // SQL query to insert data into the messages table
-    $sql = "INSERT INTO messages (email, password, address, city, province, phone_number, message, type) 
-            VALUES ('$email', '$password', '$address', '$city', '$province', '$phone_number', '$message', '$type')";
-
-    // Perform the query
-    if ($conn->query($sql) === TRUE) {
-        echo "Record inserted successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-
-// Close the database connection
-$conn->close();
-
-?> -->
 
 <!DOCTYPE html>
 <html lang="en">
