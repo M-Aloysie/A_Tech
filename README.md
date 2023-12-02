@@ -33,7 +33,7 @@ Before you begin, make sure you have the following:
 
 4. Then Open [XAMPP] your web browser and navigate to http://localhost/A_Tech/
 
-### Languages Used
+## Languages Used
 
 - HTML
 - CSS
