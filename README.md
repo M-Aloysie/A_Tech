@@ -29,7 +29,14 @@ Before you begin, make sure you have the following:
 2. Clone this repository to your local machine:
 
    git clone https://github.com/M-Aloysie/A_Tech
-3. Start XAMPP and ensure that Apache and MySQL are running.
+3. Start and ensure that Apache and MySQL are running.
 
-4. Then Open your web browser and navigate to http://localhost/A_Tech/
+4. Then Open [XAMPP] your web browser and navigate to http://localhost/A_Tech/
+
+### Languages Used
+
+- HTML
+- CSS
+- Javascript
+- PHP
 
