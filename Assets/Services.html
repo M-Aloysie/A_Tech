@@ -200,6 +200,53 @@
   </div>
   <div style="clear: both;"></div> <!-- Clearing float for proper layout -->
 </div>
+<form id="signinForm" class="row g-3 needs-validation" novalidate style="opacity: 0.9; width:500px; height: 550px; margin-left: 500px; border: 10px solid rgb(95, 54, 4); padding: 30px; margin-top: 50px;" action="" method="POST">
+  <h2 style="color: rgb(10, 84, 20); font-weight: bolder; font-size: 40px; text-align: center; opacity: 0.9; margin-bottom: 60px;"><b>Sign In</b></h2>
+  <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label" style="opacity:0.9; color: rgb(173, 102, 14);">Email</label>
+      <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" name="email" required>
+          <div class="invalid-feedback" id="emailError">Please enter a valid email address.</div>
+      </div>
+  </div>
+  <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label" style="opacity:0.9; color: rgb(173, 102, 14);">User Rquest</label>
+      <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" name="password" required>
+          <div class="invalid-feedback" id="passwordError">please Enter your request.</div>
+      </div>
+  </div>
+  <fieldset class="row mb-3">
+      <legend class="col-form-label col-sm-2 pt-0" style="opacity:0.9; color: rgb(173, 102, 14);"> User Type</legend>
+      <div class="col-sm-10">
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="user_type" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1" style="opacity:0.9; color: rgb(173, 102, 14);">
+                  Farmer
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="user_type" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2" style="opacity:0.9; color: rgb(173, 102, 14);">
+                  Customer
+              </label>
+          </div>
+      </div>
+  </fieldset>
+  <div class="row mb-3">
+      <div class="col-sm-10 offset-sm-2">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1">
+              <label class="form-check-label" for="gridCheck1" style="opacity:0.9; color: rgb(173, 102, 14);">
+                  Remember me
+              </label>
+          </div>
+      </div>
+  </div>
+  <button type="submit" class="btn btn-warning" style="margin-left: 150px; width: 200px;">Sign In</button>
+  <p style="opacity:0.9; color: rgb(134, 76, 6); margin-top: 20px;">Don't have an account? <a href="signup.php" style="opacity:0.9; color: rgb(234, 136, 16); text-decoration: double;">Sign up</a></p>
+</form>
+
 
 <!-- ... (Remaining HTML Code) ... -->
 
