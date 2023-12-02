@@ -1,13 +1,4 @@
-<?php
-session_start();
 
-// Check if the user is not logged in
-if (!isset($_SESSION['user_id'])) {
-    // Redirect to the sign-in page
-    header("Location: cussignin.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +21,13 @@ if (!isset($_SESSION['user_id'])) {
           <div class="collapse navbar-collapse" id="navbarNavDropdown"  >
             <ul class="navbar-nav" >
               <li class="nav-item" >
-                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="Home.html">Home</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link active" href="#" style="color: rgb(215, 118, 7);">About Us</a>
+                <a class="nav-link active" href="About.html" style="color: rgb(215, 118, 7);">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" style="color: rgb(222, 125, 14);">Sevices</a>
+                <a class="nav-link active" href="Services.html" style="color: rgb(222, 125, 14);">Sevices</a>
               </li>
               <li class="nav-item">
                 
@@ -45,8 +36,8 @@ if (!isset($_SESSION['user_id'])) {
                       Join Us
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <a href="/signin.html" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
-                      <a href="/signup.html" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
+                      <a href="cussignin.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
+                      <a href="cussignup.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                       
                     </ul>
                   </div>
@@ -63,16 +54,14 @@ if (!isset($_SESSION['user_id'])) {
               <h2><b>This is where Agriculture embraces Technology...</b></h2>
             </div>
           </div>
-          <!-- <div class="text-center">
-            <a href="Signin.html" class="btn-get-started scrollto" style="background-color: rgb(53, 32, 5);margin-bottom: 100px;"><button id="getstarted" style="width: 200px; height: 50px; font-size: 20px;">Get Started</button></a>
-          </div> -->
-          <br>
-          <br>
-          <h2 style="color: rgb(10, 84, 20); font-weight: bolder;font-size: 40px; text-align: center; opacity: 0.9; margin-top: 60px;"><b>About Us</b></h2>
-          <br>
-          <br>
-        <p style="text-align: center; color: rgb(151, 88, 11) ;font-size: 20px; opacity: 0.9; margin: 100px; margin-top: -20px; margin-bottom: -10px;">We are a passionate team dedicated to tackling food insecurity in Africa. We believe that everyone has the right to access nutritious and affordable food. Our platform is designed to connect small-scale farmers with the resources they need to thrive, boost agricultural productivity, and ensure equitable food distribution across the continent.</p>
+          <div class="text-center">
+          <a href="signin.php" class="btn-get-started scrollto" style="background-color: rgb(53, 32, 5); margin-bottom: 100px;">
+    <button id="getstarted" style="width: 200px; height: 50px; font-size: 20px;">Get Started</button>
+</a>
 
+          </div>
+          <br>
+          
     
           <br>
           <div class="row icon-boxes" style="margin-top: 40px;" >
@@ -135,102 +124,25 @@ if (!isset($_SESSION['user_id'])) {
                 <p>I'm Aloysie Murekatete, the founder of 'AgriTech'. I'm a dedicated advocate for food security and sustainability.</p>
             </div>
         </div> 
-
+        
         
 
-        <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: -500px; opacity: 0.8;">
-            <button id="button" class="btn btn-primary" type="button">Market Access Assistance</button>
-            <button id="button" class="btn btn-primary" type="button">Explore Our Educational Programs</button>
-            <button id="button" class="btn btn-primary" type="button">Explore our Resources</button>
+       
+          <br>
+         
+          <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: -500px; opacity: 0.8;">
+            <button id="button" class="btn btn-warning" type="button" ><a href="Services.html" style="text-decoration: none; color:black;  ">Market Access Assistance</a></button>
+            <button id="button" class="btn btn-warning" type="button"><a href="Services.html" style="text-decoration: none; color:black;  ">Explore Our Educational Programs</a></button>
+            <button id="button" class="btn btn-warning" type="button"><a href="Services.html" style="text-decoration: none; color:black;  ">Explore our Resources</a></button>
+            <button id="button" class="btn btn-warning" type="button"><a href="Services.html" style="text-decoration: none; color:black;  ">Collaboration with the Government</a></button>
           </div>
           <br>
-          <br>
-          <h2 style="color: rgb(10, 84, 20); font-weight: bolder;font-size: 40px; text-align: center; opacity: 0.9; "><b>Our Services</b></h2>
-          <br>
-
-          <p style="text-align: center; color: rgb(151, 88, 11) ;font-size: 20px; opacity: 0.9; margin: 100px; margin-top: 40px; margin-bottom: -10px;">We offer a comprehensive suite of services designed to address food insecurity in Africa. Our services are tailored to the specific needs of small-scale farmers, enabling them to increase their productivity, improve their livelihoods, and contribute to a food-secure Africa.</p>
-          <br>
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 400px;">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div id="Mission">
-                  <h1>Cultivating Success</h1>
-                  <p>Farmers are the cornerstone of our food systems, yet they often face obstacles that hinder their potential. At Farmers Support, we empower farmers by providing them with essential resources, connecting them directly to buyers, and equipping them with the knowledge and skills to succeed.</p>
-              </div>
-              </div>
-              <div class="carousel-item">
-                <div id="Vision">
-                  <h1> Ensuring Equitable Access</h1>
-                  <p>Our innovative Market Access platform revolutionizes food distribution by connecting farmers directly to buyers, including food distributors. This approach minimizes post-harvest losses, optimizes food allocation, and ensures that surplus food reaches areas facing shortages. Farmers gain market access, secure fair prices, and contribute to a more equitable food system.</p>
-              </div>
-              </div>
-              <div class="carousel-item">
-                <div class="Bala">
-                  <h1>Building a Sustainable Future</h1>
-                  <p>Through strategic partnerships with food distributors, we facilitate direct market access for farmers, reducing post-harvest losses and ensuring efficient surplus food distribution. </p>
-            
-              </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-            
-          <br>
-          <h2 style="color:rgb(91, 54, 10); font-weight: bolder;font-size: 40px; text-align: center; opacity: 0.9; margin-top: -400px; margin-bottom: 460px; "><b>Explore our services</b></h2>
-          <br>
-          <div class="row row-cols-1 row-cols-md-2 g-4" style="margin: 100px; margin-top: -450px;">
-            <div class="col">
-              <div class="card" id="card">
-                <img src="/Images/service1.webp" class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: rgb(55, 34, 8); color: rgb(148, 89, 17);">
-                  <h5 class="card-title" >Resource Access</h5>
-                  <p class="card-text">Our Resource Access service connects small-scale farmers with agricultural suppliers, providing them with essential resources like modern farming equipment, quality seeds, and fertilizers. This direct access to resources empowers farmers to adopt sustainable and efficient farming practices, enhancing their crop yields and overall productivity.
-
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card" id="card">
-                <img src="/Images/service2.jpg" style="height: 400px;" class="card-img-top" alt="..." id="service">
-                <div class="card-body" style="background-color: rgb(55, 34, 8); color: rgb(148, 89, 17);">
-                  <h5 class="card-title">Market Access</h5>
-                  <p class="card-text">The Market Access service establishes an online marketplace that connects farmers directly with buyers, including food distributors, who then deliver the food to customers across the continent. This innovative approach reduces post-harvest losses, optimizes food allocation, and ensures equitable food distribution across the country.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card" id="card">
-                <img src="/Images/service3.jpg" class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: rgb(55, 34, 8); color: rgb(148, 89, 17);">
-                  <h5 class="card-title">Education and Capacity Building</h5>
-                  <p class="card-text">Our Education and Capacity Building service provides comprehensive training and education to small-scale farmers, covering sustainable agricultural practices, financial literacy, business skills development, and market access strategies. This empowerment enables farmers to make informed decisions about their livelihoods and contribute to the overall food security of their communities.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card" id="card">
-                <img src="/Images/Service4.jpeg" style="height: 340px;" class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: rgb(55, 34, 8); color: rgb(148, 89, 17);">
-                  <h5 class="card-title" style="margin-left: 30px;">Farmers Support</h5>
-                  <p class="card-text" style="color: rgb(179, 103, 10); margin-right: 20px; margin-left: 30px;">Transform dreams into reality! We're on a mission to help farmers thrive by unlocking funds and sponsorship opportunities. Let's cultivate success together – because your farm's potential deserves to blossom!We are a passionate team dedicated to empowering farmers, transforming their aspirations into tangible realities by providing access to vital funding and sponsorship opportunities in our societies and make  a remarkable change. </p>
-                </div>
-              </div>
-            </div>
-          </div>
           
           <br>
           <br>
           <h2 style="color: rgb(219, 147, 15); font-weight: bolder;font-size: 50px; text-align: center; opacity: 0.9; margin-right: 100px;"><b>Contact Us</b></h2>
           <br>
-          <form  id="form" class="row g-3" bgcolor="transparent" style="width: 800px; align-items: center; margin-left: 100px; color: azure; background-color:transparent; margin-top: 50px;">
+          <form  id="form" class="row g-3" bgcolor="transparent" style="width: 800px; align-items: center; margin-left: 100px; color: azure; background-color:transparent; margin-top: 50px; background-image: url(/Images/contact.png);">
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label"  >Email</label>
               <input type="email" class="form-control" id="inputEmail4">
@@ -244,12 +156,12 @@ if (!isset($_SESSION['user_id'])) {
               <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-3">
               <label for="inputCity" class="form-label">City</label>
               <input type="text" class="form-control" id="inputCity">
             </div>
-            <div class="col-md-4">
-              <label for="inputState" class="form-label">State</label>
+            <div class="col-md-3">
+              <label for="inputState" class="form-label">Province</label>
               <select id="inputState" class="form-select">
                 <option selected>Kigali City</option>
                 <option selected>Eastern Province</option>
@@ -259,13 +171,13 @@ if (!isset($_SESSION['user_id'])) {
                 <option>...</option>
               </select>
             </div>
-            <div class="col-md-2">
-              <label for="inputZip" class="form-label">Zip</label>
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">Phone number</label>
               <input type="text" class="form-control" id="inputZip">
             </div>
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Message</label>
-                <input type="text" class="form-control" style="height: 60px;" id="inputAddress2" placeholder="Ask a question or Give a suggestion...">
+                <input type="text" class="form-control" style="height: 60px;" id="inputAddress2" placeholder="Give us a comment  or a suggestion">
               </div>
             <div class="col-12">
               <div class="form-check">
@@ -349,7 +261,24 @@ if (!isset($_SESSION['user_id'])) {
       </footer>
       
 
-    
+      <script>
+        // Add an event listener to all anchor tags (links)
+        document.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                // Prevent the default action of the link (e.g., navigating to another page)
+                event.preventDefault();
+                
+                // Get the href attribute of the clicked link
+                var href = link.getAttribute('href');
+                
+                // Use JavaScript to redirect to signin.php
+                window.location.href = 'signin.php';
+                
+                // If you want to pass the original href to signin.php, you can use window.location.href like this:
+                // window.location.href = 'signin.php?original_href=' + encodeURIComponent(href);
+            });
+        });
+    </script>
 
 <script src="/Js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
