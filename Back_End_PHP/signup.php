@@ -5,12 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="Signin.css">
-    <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="Signin.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.needs-validation');
+
+            form.addEventListener('submit', function (event) {
+                let isValid = true;
+
+                // Check if all required fields are filled in
+                form.querySelectorAll('[required]').forEach(function (element) {
+                    if (element.value.trim() === '') {
+                        isValid = false;
+                        element.classList.add('is-invalid');
+                    } else {
+                        element.classList.remove('is-invalid');
+                    }
+                });
+
+                // Check if passwords match
+                const password = form.querySelector('[name="password"]').value;
+                const confirmPassword = form.querySelector('[name="confirm_password"]').value;
+                if (password !== confirmPassword) {
+                    isValid = false;
+                    document.getElementById('passwordMismatchMessage').style.display = 'block';
+                } else {
+                    document.getElementById('passwordMismatchMessage').style.display = 'none';
+                }
+
+                // Check if the form is valid before redirecting
+                if (!isValid || !form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            });
+
+            form.addEventListener('change', function (event) {
+                const target = event.target;
+
+                if (target.hasAttribute('required')) {
+                    if (!target.checkValidity()) {
+                        target.classList.add('is-invalid');
+                    } else {
+                        target.classList.remove('is-invalid');
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg  " style="background-color: transparent;"  id="navbar">
@@ -37,9 +85,8 @@
                       Join Us
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <a href="cussignin.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
-                      <a href="cussignup.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
-                      
+                      <a href="signin.php" style="text-decoration:none"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
+                      <a href="signup.php" style="text-decoration:none"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                     </ul>
                   </div>
               </li>
@@ -111,7 +158,7 @@
     </div>
     <div class="col-12">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
             <label class="form-check-label" for="invalidCheck">
                 Remember me
             </label>
@@ -121,36 +168,37 @@
         </div>
     </div>
     <div class="col-12">
-        <button type="submit" class="btn btn-warning" style="margin-left: 150px; width: 200px;" name="submit">Create Account</button>
+    <a href="signin.php" style="text-decoration: none;"><button type="submit" class="btn btn-warning" style="margin-left: 150px; width: 200px;" name="submit">Create Account</button></a>
     </div>
 </form>
 
 <?php
-    require "connect.php"; 
+require "connect.php"; 
 
-    if (isset($_POST['submit'])) {
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $user_type = $_POST['user_type'];
-        $phone_number = $_POST['phone_number'];
-        $password = $_POST['password'];
+if (isset($_POST['submit'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $user_type = $_POST['user_type'];
+    $phone_number = $_POST['phone_number'];
+    $password = $_POST['password'];
 
-        $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `address`, `user_type`, `phone_number`, `password`) 
-                VALUES ('$first_name', '$last_name', '$email', '$address', '$user_type', '$phone_number', '$password')";
-        $result = mysqli_query($con, $sql);
+    $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `address`, `user_type`, `phone_number`, `password`) 
+            VALUES ('$first_name', '$last_name', '$email', '$address', '$user_type', '$phone_number', '$password')";
+    $result = mysqli_query($con, $sql);
 
-        if ($result) {
-            header("location: signin.php");
-            echo
-                "<script> alert('Signup is Successful'); </script>";
-            exit();
-        } else {
-            echo "Error: " . mysqli_error($con);
-        }
+    if ($result) {
+        header("location: signin.php");
+       
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($con);
     }
-    ?>
+}
+
+?>
+
 
 <script src="../Js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 

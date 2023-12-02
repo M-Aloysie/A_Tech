@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Check if the form is valid and passwords match before redirecting
       if (isValid && checkPasswordsMatch()) {
         // Allow redirection to Signin.html if the form is valid
-        window.location.href = 'Signin.html';
+        window.location.href = 'Signin.php';
       }
     });
   

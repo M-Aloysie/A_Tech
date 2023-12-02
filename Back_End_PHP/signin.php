@@ -1,4 +1,5 @@
 <?php
+
 require "connect.php"; // Make sure to include your database connection file
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,12 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userType = isset($_POST['user_type']) ? 'Farmer' : 'Customer'; // Assuming the first radio button is for farmers
 
     // Check if the user is registered
-    $sqlCheckUser = "SELECT * FROM user WHERE email='$email' AND password='$password' AND user_type='$userType'";
+    $sqlCheckUser = "SELECT * FROM users WHERE email='$email' AND password='$password' AND user_type='$userType'";
     $resultCheckUser = mysqli_query($con, $sqlCheckUser);
 
     if ($resultCheckUser && mysqli_num_rows($resultCheckUser) > 0) {
         // User is registered, proceed with authentication
-        $sqlAuthenticate = "SELECT * FROM user WHERE email='$email' AND password='$password' AND user_type='$userType'";
+        $sqlAuthenticate = "SELECT * FROM users WHERE email='$email' AND password='$password' AND user_type='$userType'";
         $resultAuthenticate = mysqli_query($con, $sqlAuthenticate);
 
         if ($resultAuthenticate && mysqli_num_rows($resultAuthenticate) > 0) {
@@ -30,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     mysqli_close($con);
 }
+
+
 ?>
 
 
@@ -70,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                       <li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li>
-                      <a href="signup.php"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
+                      <a href="signup.php" style="text-decoration:none"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                     </ul>
                   </div>
               </li>

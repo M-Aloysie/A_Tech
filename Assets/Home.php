@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the sign-in page
+    header("Location: cussignin.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +64,10 @@
             </div>
           </div>
           <div class="text-center">
-            <a href="Signin.html" class="btn-get-started scrollto" style="background-color: rgb(53, 32, 5);margin-bottom: 100px;"><button id="getstarted" style="width: 200px; height: 50px; font-size: 20px;">Get Started</button></a>
+          <a href="signin.php" class="btn-get-started scrollto" style="background-color: rgb(53, 32, 5); margin-bottom: 100px;">
+    <button id="getstarted" style="width: 200px; height: 50px; font-size: 20px;">Get Started</button>
+</a>
+
           </div>
           <br>
           <br>
