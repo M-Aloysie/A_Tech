@@ -35,8 +35,8 @@
                       Join Us
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <a href="/signin.html" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
-                      <a href="/signup.html" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
+                      <a href="cussignin.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
+                      <a href="cussignup.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                       
                     </ul>
                   </div>
@@ -221,7 +221,7 @@
           <br>
           <h2 style="color: rgb(219, 147, 15); font-weight: bolder;font-size: 50px; text-align: center; opacity: 0.9; margin-right: 100px;"><b>Contact Us</b></h2>
           <br>
-          <form  id="form" class="row g-3" bgcolor="transparent" style="width: 800px; align-items: center; margin-left: 100px; color: azure; background-color:transparent; margin-top: 50px;">
+          <form  id="form" class="row g-3" bgcolor="transparent" style="width: 800px; align-items: center; margin-left: 100px; color: azure; background-color:transparent; margin-top: 50px; background-image: url(/Images/contact.png);">
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label"  >Email</label>
               <input type="email" class="form-control" id="inputEmail4">
@@ -256,7 +256,7 @@
             </div>
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Message</label>
-                <input type="text" class="form-control" style="height: 60px;" id="inputAddress2" placeholder="Ask a question or Give a suggestion...">
+                <input type="text" class="form-control" style="height: 60px;" id="inputAddress2" placeholder="Give us a comment  or a suggestion">
               </div>
             <div class="col-12">
               <div class="form-check">
