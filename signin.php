@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_close($con);
 }
 
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -174,13 +174,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="trial.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" style="color: rgb(215, 118, 7);">About Us</a>
+                <a class="nav-link active" href="About.php" style="color: rgb(215, 118, 7);">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" style="color: rgb(222, 125, 14);">Services</a>
+                <a class="nav-link active" href="Services.php" style="color: rgb(222, 125, 14);">Services</a>
               </li>
               <li class="nav-item">
                 <div class="dropdown">

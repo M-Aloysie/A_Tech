@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Your Website</title>
+    <title>AgriTech</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel ="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -398,7 +399,7 @@ bottom: 0%;
             color:bisque;
             flex-direction: column;
             width: 400px;
-            height: 400px;
+            height: 500px;
             align-items: center;
             justify-content: center;
             background-color: transparent;
@@ -444,25 +445,25 @@ bottom: 0%;
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav" style="margin-left:200px; color:bisque;">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html" style="color: rgb(218, 120, 9); opacity: 0.9;">Home</a>
+                    <a class="nav-link active" href="trial.php" style="color: rgb(218, 120, 9); opacity: 0.9;">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="About.html" style="color: rgb(218, 120, 9); opacity: 0.9;">About Us</a>
+                    <a class="nav-link" href="About.php" style="color: rgb(218, 120, 9); opacity: 0.9;">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Signin.css" style="color: rgb(218, 120, 9); opacity: 0.9;">Services</a>
+                    <a class="nav-link" href="Services.php" style="color: rgb(218, 120, 9); opacity: 0.9;">Services</a>
                 </li>
                 <li class="nav-item">
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
             Join Us
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li><a class="dropdown-item" href="signin.html" style="text-decoration: none;" style="color: rgb(218, 120, 9); opacity: 0.9;">Sign in</a></li>
-            <li><a class="dropdown-item" href="signup.html" style="text-decoration: none;" style="color: rgb(218, 120, 9); opacity: 0.9;">Sign up</a></li>
+            <li><a class="dropdown-item" href="signin.php" style="text-decoration: none;" style="color: rgb(218, 120, 9); opacity: 0.9;">Login</a></li>
+            <li><a class="dropdown-item" href="signup.php" style="text-decoration: none;" style="color: rgb(218, 120, 9); opacity: 0.9;">Register</a></li>
         </ul>
     </div>
-</li>
+</li> -->
 
             </ul>
         </div>
@@ -473,9 +474,10 @@ bottom: 0%;
         <div class="profile-container" id="profileContainer" style="margin-left: -20px; ">
             <div class="profile-links" style="padding: 10px; margin-left: 10px;">
                 <span id="username"></span>
-                <a href="#" id="loginLink" style="color: rgb(218, 120, 9); opacity: 0.9;" style="margin-left: -30px; margin-right: 10px;">Login</a>
-                <a href="#" id="logout" onclick="logout()" style="color: rgb(218, 120, 9); opacity: 0.9;">Logout</a>
-                <a href="profile.php" id="editProfileLink" style="color: rgb(218, 120, 9); opacity: 0.9;">Edit Profile</a>
+                <a href="signup.php" id="registerLink" style="color: rgb(218, 120, 9); opacity: 0.9;" style="margin-left: -30px; margin-right: 10px;" class="no-alert">Register</a>
+                <a href="#" id="loginLink" style="color: rgb(218, 120, 9); opacity: 0.9;" style="margin-left: -30px; margin-right: 10px;" class="no-alert">Login</a>
+                <a href="#" id="logout" onclick="logout()" style="color: rgb(218, 120, 9); opacity: 0.9;" class="no-alert">Logout</a>
+                <a href="edit.php" id="editProfileLink" style="color: rgb(218, 120, 9); opacity: 0.9;" class="no-alert">Edit Profile</a>
             </div>
             <img id="profile-picture" src="Founder.jpg" alt="" style="opcacity: 0.9;">
         </div>
@@ -484,75 +486,131 @@ bottom: 0%;
     <div class="login-container" id="loginContainer">
         <h2>Login</h2>
         <form id="loginForm" action="" method="post">
-            <label for="username">Username or Email:</label>
-            <input type="text" id="username" name="username" required><br>
+            <label for="first_name">firstname:</label>
+            <input type="text" id="first_name" name="first_name" required><br>
+
+            <label for="last_name">lastname:</label>
+            <input type="text" id="last_name" name="last_name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required><br>
 
-            <input type="submit" value="Login">
+            <input type="submit" name="submit" value="Login">
+            <h9 style="margin-top: 20px;">Don't have an account? <a href="signup.php" id="registerLink">Register</a></h5>
         </form>
     </div>
+    <?php
+require "connect.php";
+
+if (isset($_POST['submit'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if the user is registered
+    $check_query = "SELECT * FROM `users` WHERE `email` = '$email'";
+    $check_result = mysqli_query($con, $check_query);
+
+    if ($check_result && mysqli_num_rows($check_result) > 0) {
+        // User found, validate credentials
+        $query = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'";
+        $result = mysqli_query($con, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            // User authenticated, proceed to log in
+            $insert_query = "INSERT INTO `logedusers` (`first_name`, `last_name`, `email`, `password`) 
+                             VALUES ('$first_name', '$last_name', '$email', '$password')";
+            $insert_result = mysqli_query($con, $insert_query);
+
+            if ($insert_result) {
+                echo "<script>alert('Login successful. Information logged in logedusers table.');</script>";
+                // Redirect to the desired page if needed
+                // header("location: welcome.php");
+            } else {
+                echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
+            }
+        } else {
+            // Invalid credentials, show an error message
+            echo "<script>alert('Invalid email or password');</script>";
+        }
+    } else {
+        // User not registered, show an alert
+        echo "<script>alert('User not registered. Please sign up first.');</script>";
+    }
+}
+
+// Close the database connection
+mysqli_close($con);
+?>
+
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const loginContainer = document.getElementById("loginContainer");
-            const profileContainer = document.getElementById("profileContainer");
-            const profilePicture = document.getElementById("profile-picture");
-            const usernameElement = document.getElementById("username");
-            const logoutButton = document.getElementById("logout");
-            const loginLink = document.getElementById("loginLink");
-            const editProfileLink = document.getElementById("editProfileLink");
+      document.addEventListener("DOMContentLoaded", function () {
+    const loginContainer = document.getElementById("loginContainer");
+    const profileContainer = document.getElementById("profileContainer");
+    const profilePicture = document.getElementById("profile-picture");
+    const usernameElement = document.getElementById("username");
+    const logoutButton = document.getElementById("logout");
+    const loginLink = document.getElementById("loginLink");
+    const editProfileLink = document.getElementById("editProfileLink");
 
-            // Check if the user is already logged in (you may need a more secure approach in production)
-            if (localStorage.getItem("loggedIn")) {
-                const storedUsername = localStorage.getItem("username");
-                profileContainer.style.display = "flex";
-                usernameElement.textContent = storedUsername;
-                logoutButton.style.display = "block";
-                loginLink.style.display = "none";
-                editProfileLink.style.display = "block"; // Display the edit profile link when logged in
-            } else {
-                loginLink.style.display = "block";
-                editProfileLink.style.display = "none"; // Hide the edit profile link when not logged in
-            }
+    // Check if the user is already logged in
+    if (localStorage.getItem("loggedIn")) {
+        const storedUsername = localStorage.getItem("username");
+        profileContainer.style.display = "flex";
+        usernameElement.textContent = storedUsername;
+        logoutButton.style.display = "block";
+        loginLink.style.display = "none";
+        editProfileLink.style.display = "block"; // Display the edit profile link when logged in
+    } else {
+        loginLink.style.display = "block";
+        editProfileLink.style.display = "none"; // Hide the edit profile link when not logged in
+    }
 
-            loginLink.addEventListener("click", function () {
-                loginContainer.style.display = "block";
-            });
+    // Add event listener to all links
+   
 
-            const loginForm = document.getElementById("loginForm");
-            loginForm.addEventListener("submit", function (event) {
-                event.preventDefault();
+    loginLink.addEventListener("click", function () {
+        loginContainer.style.display = "block";
+    });
 
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
+    const loginForm = document.getElementById("loginForm");
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-               
-                profileContainer.style.display = "flex";
-                usernameElement.textContent = username;
-                logoutButton.style.display = "block";
-                loginLink.style.display = "none";
-                editProfileLink.style.display = "block"; 
-                localStorage.setItem("loggedIn", true);
-                localStorage.setItem("username", username);
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-               
-                loginContainer.style.display = "none";
-            });
-            window.logout = function () {
-    
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("username");
+        // Simulating a successful login
+        profileContainer.style.display = "flex";
+        usernameElement.textContent = username;
+        logoutButton.style.display = "block";
+        loginLink.style.display = "none";
+        editProfileLink.style.display = "block"; // Display the edit profile link when logged in
 
-    
-    window.location.reload();
-};
+        // Store login status in local storage
+        localStorage.setItem("loggedIn", true);
+        localStorage.setItem("username", username);
 
+        // Hide the login container
+        loginContainer.style.display = "none";
+    });
 
+    window.logout = function () {
+        // Clear the local storage
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("username");
 
-        });
-    </script>
+        // Refresh the current page
+        window.location.reload();
+    };
+});
+</script>
+
 
     <?php
   
@@ -789,18 +847,11 @@ bottom: 0%;
 
       </footer>
 <!-- Bootstrap JS and Popper.js scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@2.11.6/dist/umd/popper.min.js" integrity="sha384-vFJwASpB5CGibqvytZK8WO5XGAw==
-len+E+5STt4n0eAuH9i/XUKssC+rtcCT2C9z0zOFeF0L7c2A1G+QQ==
-Gihg6e5j2tM2L9/h4p/TEfCJ3e3tjhkibBTPI9PqLmcqAB0NcbLqUxmDqy/So5Ab"
-crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-u7j5f7TYqp4Mx6cb/lrSJapdRyRQPoNlU7XktvAvJFq6bRS6FJcEYY2RnXFB2Q5v" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-bswWzwu65fZ6F7td1ubS8q2P0DOJ4nbDzlZq0qGuvDHqIcHk9LhSHW2I/t9O5YO7" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/popper.js@2.11.6/dist/umd/popper.min.js" integrity="sha384-vFJwASpB5CGibqvytZK8WO5XGAw==
-len+E+5STt4n0eAuH9i/XUKssC+rtcCT2C9z0zOFeF0L7c2A1G+QQ==
-Gihg6e5j2tM2L9/h4p/TEfCJ3e3tjhkibBTPI9PqLmcqAB0NcbLqUxmDqy/So5Ab"
-crossorigin="anonymous"></script>
+<!-- Add these in the head section of your HTML file -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-bswWzwu65fZ6F7td1ubS8q2P0DOJ4nbDzlZq0qGuvDHqIcHk9LhSHW2I/t9O5YO7" crossorigin="anonymous"></script>
 </body>
 </html>

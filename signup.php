@@ -70,17 +70,17 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown"  >
             <ul class="navbar-nav" >
               <li class="nav-item" >
-                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" style="color: rgb(218, 120, 9); opacity: 0.9;" href="trial.php">Home</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link active" href="#" style="color: rgb(215, 118, 7);">About Us</a>
+                <a class="nav-link active" href="About.php" style="color: rgb(215, 118, 7);">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" style="color: rgb(222, 125, 14);">Services</a>
+                <a class="nav-link active" href="Services.php" style="color: rgb(222, 125, 14);">Services</a>
               </li>
               <li class="nav-item">
                 
-              <div class="dropdown">
+              <!-- <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                       Join Us
                     </button>
@@ -88,7 +88,7 @@
                       <a href="signin.php" style="text-decoration:none"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
                       <a href="signup.php" style="text-decoration:none"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                     </ul>
-                  </div>
+                  </div> -->
               </li>
             </ul>
           </div>
@@ -173,10 +173,9 @@
 </form>
 
 <?php
-require "connect.php"; 
+require "connect.php";
 
 if (isset($_POST['submit'])) {
-    $user_id = $user_id['user_id'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
@@ -185,20 +184,30 @@ if (isset($_POST['submit'])) {
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `address`, `user_type`, `phone_number`, `password`) 
-            VALUES ('$first_name', '$last_name', '$email', '$address', '$user_type', '$phone_number', '$password')";
-    $result = mysqli_query($con, $sql);
+    // Check if the user is already registered
+    $check_query = "SELECT * FROM `users` WHERE `email` = '$email'";
+    $check_result = mysqli_query($con, $check_query);
 
-    if ($result) {
-        header("location: signin.php");
-       
-        exit();
+    if (mysqli_num_rows($check_result) > 0) {
+        // User is already registered, show an alert
+        echo "<script>alert('User is already registered');</script>";
     } else {
-        echo "Error: " . mysqli_error($con);
+        // User is not registered, proceed with the registration
+        $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `address`, `user_type`, `phone_number`, `password`) 
+                VALUES ('$first_name', '$last_name', '$email', '$address', '$user_type', '$phone_number', '$password')";
+        $result = mysqli_query($con, $sql);
+
+        if ($result) {
+            // Registration successful, redirect to sign-in page
+            header("location: signin.php");
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($con);
+        }
     }
 }
-
 ?>
+
 
 
 <script src="../Js/script.js"></script>

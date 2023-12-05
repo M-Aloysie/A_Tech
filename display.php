@@ -13,8 +13,7 @@ $result=mysqli_query($con,"SELECT * FROM `users`");
     <h3><a href="signup.php">+ Add a new customer</a></h3>
     <table border="2">
     <thead>
-        <th></th>
-        <th>user_id</th>
+        <th>id</th>
         <th>first_name</th>
         <th>last_name</th>
         <th>email</th>
@@ -30,7 +29,7 @@ while ($fetch= mysqli_fetch_array($result)) {
 ?>
  
     <tr>
-        <td><?php echo $fetch['user_id'] ?></td>
+        <td><?php echo $fetch['id']?></td>
         <td><?php echo $fetch['first_name'] ?></td>
         <td><?php echo $fetch['last_name'] ?></td>
         <td><?php echo $fetch['email'] ?></td>
@@ -39,8 +38,8 @@ while ($fetch= mysqli_fetch_array($result)) {
         <td><?php echo $fetch['phone_number'] ?></td>
         <td><?php echo $fetch['password'] ?></td>
         <td>
-        <button><a href="edit.php?demo=<?php echo $fetch['user_id'] ?>">Edit</a></button>
-        <button><a href="remove.php?demo=<?php echo $fetch['user_id'] ?>">Remove</a></button>
+        <button><a href="edit.php?demo=<?php echo $fetch['id'] ?>">Edit</a></button>
+        <button><a href="remove.php?demo=<?php echo $fetch['id'] ?>">Remove</a></button>
         </td>
         
     </tr>

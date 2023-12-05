@@ -1,9 +1,9 @@
 <?php
 include "connect.php";
 $Rem = $_GET['demo'];
-$sql = mysqli_query($con, "DELETE FROM customers WHERE emp_id= '$Rem'");
+$sql = mysqli_query($con, "DELETE FROM users WHERE id= '$Rem'");
 
 if ($sql){
-    header("location: cusdisplay.php");
+    header("location: display.php");
 }
 ?>
