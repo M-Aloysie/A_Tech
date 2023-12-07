@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>AgriTech</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -543,8 +543,8 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Close the database connection
-mysqli_close($con);
+
+
 ?>
 
 
@@ -642,7 +642,7 @@ mysqli_close($con);
             </div>
           </div>
           <div class="text-center">
-          <a href="signin.html" class="btn-get-started scrollto" style="background-color: rgb(53, 32, 5); margin-bottom: 100px;">
+          <a href="signin.php" class="btn-get-started scrollto" style="background-color: rgb(53, 32, 5); margin-bottom: 100px;">
     <button id="getstarted" style="width: 200px; height: 50px; font-size: 20px;">Get Started</button>
 </a>
 

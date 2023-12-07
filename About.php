@@ -386,8 +386,8 @@ bottom: 0%;
                       Join Us
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <a href="cussignin.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
-                      <a href="cussignup.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
+                      <a href="signin.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
+                      <a href="signup.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                       
                     </ul>
                   </div>

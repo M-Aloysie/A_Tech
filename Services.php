@@ -386,8 +386,8 @@ bottom: 0%;
                       Join Us
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <a href="cussignin.html" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
-                      <a href="cussignup.html" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
+                      <a href="signin.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign in</button></li></a>
+                      <a href="signup.php" style="text-decoration: none;"><li><button class="dropdown-item" id="dropdown-item" type="button">Sign up</button></li></a>
                       
                     </ul>
                   </div>
@@ -462,10 +462,7 @@ bottom: 0%;
             <button id="button" class="btn btn-primary" type="button">Collaboration with the Government</button>
           </div>
           <br>
-          <!-- ... (Previous HTML Code) ... -->
-
-<!-- Services Sections with Left Float for Picture and Right Float for Information -->
-<!-- Market Access Assistance Section -->
+          
 <div class="service-section" id="marketAccessSection" style="background-color:transparent; padding:10px 0;border: 3px solid rgb(211, 123, 15); margin: 50px;">
   <img src="Market.jpg" alt="Market Access Image" style="float: left; margin-right: 20px; width: 400px; height: 500px;">
   <div style="float: right; width: 60%;">
